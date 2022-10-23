@@ -65,4 +65,4 @@ if __name__ == '__main__':
 
     d_dir = input(f"Destination: {path}/")
     print(f"{check_dir_transfer_f(path, d_dir, f_list, e_list)} files moved successfully")
-    input("Press any key to exit...")
+    input("Press Enter to exit...")
