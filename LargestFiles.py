@@ -27,7 +27,7 @@ def set_path(cur_path, files_sizes, min_mb, tabs=0):
     if are_files:
         for f in f_list:
             file_stats = os.stat(f"{cur_path}/{f}")
-            file_size_mb = file_stats.st_size / (1024 * 1024)
+            file_size_mb = round((file_stats.st_size / (1024 * 1024)), 2)
             if file_size_mb > min_mb:
                 files_sizes.append((file_size_mb, f"{cur_path}/{f}"))
 
