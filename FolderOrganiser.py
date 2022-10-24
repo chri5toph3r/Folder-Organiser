@@ -3,14 +3,21 @@ import shutil
 
 
 # get path and list of files
-def get_files_list(dir_name=None):
+def get_f_d_list(dir_name=None, get_dirs=False, tabs=0):
     if not os.path.isdir(dir_name):
         dir_name = os.path.dirname(__file__).replace("\\", "/")
         print(f"Directory not given/found")
+
+    for t in range(tabs):
+        print("\t", end="")
     print(f"Current directory: {dir_name}/\n")
 
-    files_list = os.listdir(dir_name)
-    files_list = [f for f in files_list if os.path.isfile(f"{dir_name}/{f}") and "." in f]
+    elements_list = os.listdir(dir_name)
+    files_list = [f for f in elements_list if os.path.isfile(f"{dir_name}/{f}") and "." in f]
+
+    if get_dirs:
+        dirs_list = [d for d in elements_list if os.path.isdir(f"{dir_name}/{d}")]
+        return dir_name, files_list, dirs_list
 
     return dir_name, files_list
 
@@ -59,7 +66,7 @@ if __name__ == '__main__':
     files_path = os.path.dirname(__file__).replace('\\', '/')
     print(f"File's path: {files_path}")
     path = input("path: ")
-    path, f_list = get_files_list(path)
+    path, f_list = get_f_d_list(path)
     all_e_list = get_all_file_extensions(f_list)
     e_list = check_asked_extensions(all_e_list, input("extensions: "))
 
