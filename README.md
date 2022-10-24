@@ -1,4 +1,4 @@
-# Folder-Organiser
+# FolderOrganiser.py
 
 ### Usage:
 ```
@@ -27,3 +27,18 @@ If given directory does not exit, it will get created.
 
 At the end, the amount of moved files will be printed out.
 To exit the program you have to click enter.
+
+# LargestFiles.py
+
+### Usage:
+```
+path:
+```
+Function from FolderOrganiser.py.
+
+```
+smallest file size to intake (in MB):
+```
+Minimal size the file has to have to be printed out at the end.
+
+After that the program will run and the files above minimal size will be printed in the terminal window. At the end is the total size of the found files.
