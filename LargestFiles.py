@@ -57,3 +57,4 @@ if __name__ == '__main__':
         print(f"[{s[0]}MB] {s[1]}")
         sizes_sum += s[0]
     print(f"[{round(sizes_sum, 2)}MB] in total")
+    input("Press Enter to exit...")
