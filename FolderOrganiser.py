@@ -12,13 +12,21 @@ def get_f_d_list(dir_name=None, get_dirs=False, tabs=0):
         print("\t", end="")
     print(f"Current directory: {dir_name}/\n")
 
-    elements_list = os.listdir(dir_name)
-    files_list = [f for f in elements_list if os.path.isfile(f"{dir_name}/{f}") and "." in f]
+    try:
+        elements_list = os.listdir(dir_name)
+        files_list = [f for f in elements_list if os.path.isfile(f"{dir_name}/{f}") and "." in f]
+
+        if get_dirs:
+            dirs_list = [d for d in elements_list if os.path.isdir(f"{dir_name}/{d}")]
+            return dir_name, files_list, dirs_list
+        return dir_name, files_list
+    except IOError:
+        print(f"Permission denied {dir_name}")
+        files_list = []
+        dirs_list = []
 
     if get_dirs:
-        dirs_list = [d for d in elements_list if os.path.isdir(f"{dir_name}/{d}")]
         return dir_name, files_list, dirs_list
-
     return dir_name, files_list
 
 

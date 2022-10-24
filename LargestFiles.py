@@ -47,4 +47,9 @@ if __name__ == '__main__':
     f_sizes = []
     f_sizes = set_path(path, f_sizes, float(min_f_size))
     f_sizes.sort(reverse=True)
-    print(f_sizes)
+
+    sizes_sum = 0
+    for s in f_sizes:
+        print(f"[{s[0]}MB] {s[1]}")
+        sizes_sum += s[0]
+    print(f"[{round(sizes_sum, 2)}MB] in total")
